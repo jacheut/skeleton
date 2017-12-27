@@ -40,6 +40,14 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- 显式指定Mapper文件位置 -->
 		<property name="mapperLocations" value="classpath*:cn/skele/mapper/**/*.xml" />
+		<property name="configLocation" value="classpath:spring/mybatisConfig.xml"/>
+		<property name="plugins">
+			<list>
+				<bean class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+					<property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect"></property>
+				</bean>
+			</list>
+		</property>
 	</bean>
 
 	<!-- spring与mybatis整合配置，扫描所有dao -->
