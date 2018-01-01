@@ -200,10 +200,6 @@
         <finalName>skeleton-web</finalName>
         <resources>
             <resource>
-                <directory>src/main/resources/${profile.path}</directory>
-                <filtering>true</filtering>
-            </resource>
-            <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <excludes>
@@ -211,6 +207,10 @@
                     <exclude>**/sit/*.*</exclude>
                     <exclude>**/prd/*.*</exclude>
                 </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${profile.path}</directory>
+                <filtering>true</filtering>
             </resource>
         </resources>
     </build>

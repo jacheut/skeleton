@@ -1,7 +1,7 @@
 package cn.skele.service.impl;
 
-import cn.skele.mapper.IUserMapper;
-import cn.skele.model.User;
+import cn.skele.mapper.UserMapper;
+import cn.skele.model.po.User;
 import cn.skele.service.IUserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,10 +15,10 @@ import javax.annotation.Resource;
 @Transactional
 public class UserServiceImpl implements IUserService {
 	@Resource
-	private IUserMapper userDao;
+	private UserMapper userDao;
 
-	public User findUserById(int id) {
-		return userDao.findUserById(id);
+	public User findUserById(Long id) {
+		return userDao.selectByPrimaryKey(id);
 	}
 
 }

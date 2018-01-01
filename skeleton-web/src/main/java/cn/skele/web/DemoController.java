@@ -1,7 +1,8 @@
 package cn.skele.web;
 
 import cn.skele.business.IUserBusiness;
-import cn.skele.model.User;
+import cn.skele.model.po.User;
+import cn.skele.model.vo.ResponseVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
 
 @Controller
 @RequestMapping("/demo")
@@ -25,7 +25,13 @@ public class DemoController {
 	 */
 	@RequestMapping("/test")
 	@ResponseBody
-	public User getUser(HttpServletRequest request){
-		return userBusiness.getUserById(1);
+	public ResponseVo getUser(HttpServletRequest request){
+		return new ResponseVo(userBusiness.getUserById(1));
+	}
+
+	@RequestMapping("/manager/login")
+	@ResponseBody
+	public ResponseVo login(HttpServletRequest request){
+		return new ResponseVo(userBusiness.getUserById(1));
 	}
 }

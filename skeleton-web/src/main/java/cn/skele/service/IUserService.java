@@ -1,7 +1,7 @@
 package cn.skele.service;
 
-import cn.skele.model.User;
+import cn.skele.model.po.User;
 
 public interface IUserService {
-	public User findUserById(int id);
+	public User findUserById(Long id);
 }

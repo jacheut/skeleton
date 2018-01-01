@@ -28,7 +28,18 @@
         <filter-name>SpringEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
+    <!-- assess origin --> 
+    <filter>
+        <filter-name>accessOriginFilter</filter-name>
+        <filter-class>cn.skele.filter.AccessOriginFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>accessOriginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- 监听器,在启动Web容器时,自动装配contextConfigLocation配置的spring.xml中的配置信息 -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -48,7 +59,7 @@
         <servlet-name>springMVC</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
     <!-- 方案一：指明对于如下资源文件不采用spring的过滤器
     	关于default是tomcat配置的一个servlet，“DefaultServlet被定义在$CATALINA_HOME/conf/web.xml中 -->
      <servlet-mapping>
